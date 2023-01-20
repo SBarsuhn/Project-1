@@ -1,5 +1,8 @@
 :root {
-background-image:linear-gradient(90deg, #2d3346, #0c1e31);
+/* background-image:linear-gradient(90deg, #2d3346, #0c1e31); */
+background-image: url(./images/unnamed.jpg);
+background-size: cover;
+background-repeat: no-repeat;
 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 .cardcontainer {
@@ -12,7 +15,7 @@ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .card {
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, .4);
     display: flex;
     justify-content: center;
     border-style: solid;
@@ -24,26 +27,35 @@ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     margin:50px;
     width: 25vw;
     height: 25vh;
-    box-shadow: #0e1822 7px 10px 5px;
+    box-shadow: #182735 7px 10px 25px;
 }
 
 .cardtitle {
-    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 24px;
     text-align: center;
     text-shadow: #0e1822 3px 3px 3px;
+}
+
+h2 {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 25px;
+    padding: 5px;
+    padding-bottom:7px;
 }
 
 input {
     border-radius: 20px;
     width:20vw;
     height: 30px;
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .searchbtn {
-border-radius: 15px;
-width: 75px;
-height:35px;
-background-color:rgba(102, 116, 141, 0.5);
+font-size: 20px;
+border-radius: 20px;
+width: 40px;
+height: 40px;
+background-color:rgba(255, 255, 255, 0.5);
 }
 

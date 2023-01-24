@@ -1,3 +1,61 @@
 :root {
-    
+/* background-image:linear-gradient(90deg, #2d3346, #0c1e31); */
+background-image: url(./images/unnamed.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
+.cardcontainer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    /* border-style: solid;
+    border-color:white; */
+    margin-top: 250px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, .4);
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 300px;
+    margin:50px;
+    width: 25vw;
+    height: 25vh;
+    box-shadow: #182735 7px 10px 25px;
+}
+
+.cardtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    text-align: center;
+    text-shadow: #0e1822 3px 3px 3px;
+}
+
+h2 {
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 25px;
+    padding: 5px;
+    padding-bottom:7px;
+}
+
+input {
+    border-radius: 20px;
+    width:20vw;
+    height: 30px;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.searchbtn {
+font-size: 20px;
+border-radius: 20px;
+width: 40px;
+height: 40px;
+background-color:rgba(255, 255, 255, 0.5);
+}
+

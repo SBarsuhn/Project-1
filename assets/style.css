@@ -23,7 +23,7 @@ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     border-radius: 15px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 300px;
+    padding-bottom: 310px;
     margin:50px;
     width: 25vw;
     height: 25vh;
@@ -54,7 +54,8 @@ input {
 .searchbtn {
 font-size: 20px;
 border-radius: 20px;
-width: 40px;
+width: 400px;
 height: 40px;
 background-color:rgba(255, 255, 255, 0.5);
+
 }

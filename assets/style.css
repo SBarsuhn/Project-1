@@ -1,25 +1,29 @@
 :root {
-/* background-image:linear-gradient(90deg, #2d3346, #0c1e31); */
-background-image: url(./images/unnamed.jpg);
-background-size: cover;
+
+/* background-image: url(./images/layered-waves-haikei.svg); */
+/* background-image: url(./images/blob-scene-haikei.svg); */
+background-image: url(./images/blob-scene-haikei\ \(1\).svg);
 background-repeat: no-repeat;
-font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+background-position: center;
+background-size: cover;
+height: 100%;
+background-color: #000b14;
+font-family: 'Roboto Mono', monospace;
 }
+
 .cardcontainer {
     display:flex;
     justify-content: center;
     align-items: center;
-    /* border-style: solid;
-    border-color:white; */
     margin-top: 250px;
 }
 
 .card {
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 22, 40, 0.4);
     display: flex;
     justify-content: center;
     border-style: solid;
-    border-color: rgb(0, 0, 0);
+    border-color: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     padding-left: 50px;
     padding-right: 50px;
@@ -27,28 +31,31 @@ font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
     margin:50px;
     width: 25vw;
     height: 25vh;
-    box-shadow: #182735 7px 10px 25px;
+    box-shadow: #000b14 7px 10px 25px;
 }
 
 .cardtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 24px;
     text-align: center;
     text-shadow: #0e1822 3px 3px 3px;
 }
 
-h2 {
+h3 {
     background-color: rgba(0, 0, 0, .4);
     border-radius: 25px;
     padding: 5px;
     padding-bottom:7px;
+
 }
 
 input {
     border-radius: 20px;
     width:20vw;
     height: 30px;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bolder
 }
 
 .searchbtn {
@@ -56,6 +63,6 @@ font-size: 20px;
 border-radius: 20px;
 width: 400px;
 height: 40px;
-background-color:rgba(255, 255, 255, 0.5);
+background-color:rgba(255, 255, 255, 0.8);
 
 }

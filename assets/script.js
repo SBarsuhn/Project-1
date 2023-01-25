@@ -20,37 +20,47 @@ function getProductId(event) {
                 const pT = data.products[0].title
                 console.log(pT);
                 console.log(pId);
-                //getProductPrice(pId)
+                getProductPrice(pId)
             })
         })
 }
 grocerySearch.addEventListener("click", getProductId);
 
-/*
+
             function getProductPrice (pId) {
                 fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ willSpoonApi)
                 .then(function (response) {
                     response.json().then(function (data) {
                         const productPrice = data.price;
                         console.log(productPrice);
-                        priceCompare(productPrice);
+                        getCryptoId(productPrice);
                     })
                 })
             }
-            getProductId()
 
-            function getCryptoId() {
-                fetch(`https://api.coinstats.app/public/v1/coins`)
+            function getCryptoId(productPrice) {
+                fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=10`)
                 .then(function (response) {
                     response.json().then(function (data) {
-                        const cId = data.coins[0].id;
+                        let cryptoList = data.coins
+                        for (let index = 0; index < cryptoList.length; index++) {
+                            const coinName = cryptoList[index].name
+                            const coinPrice = cryptoList[index].price
+                            console.log(coinName);
+                            console.log(coinPrice);
+                            if (productPrice>coinPrice){
+                               let result1 = coinPrice/productPrice
+                               console.log(result1);
+                            }
+                        }
+                        /*const cId = data.coins[0].id;
                         console.log(cId);
-                        getCryptoPrice(cId);
+                        getCryptoPrice(cId);*/
                     })
                 })
             }
 
-            function getCryptoPrice(cId) {
+           /* function getCryptoPrice(cId) {
                 fetch(`https://api.coinstats.app/public/v1/coins`)
                 .then(function (response) {
                     response.json().then(function (data) {

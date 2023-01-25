@@ -13,7 +13,7 @@ function getProductId(event) {
     event.preventDefault()
     let groceryItem = groceryInputEl.value
     console.log(`made it`);
-    fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + samSpoonApi)
+    fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + adamSpoonApi)
         .then(function (response) {
             response.json().then(function (data) {
                 const pId = data.products[0].id
@@ -49,8 +49,13 @@ grocerySearch.addEventListener("click", getProductId);
                             console.log(coinName);
                             console.log(coinPrice);
                             if (productPrice>coinPrice){
-                               let result1 = coinPrice/productPrice
-                               console.log(result1);
+                               let result1 = productPrice/coinPrice
+                               console.log("[grocery item title] is equal to " + Math.round(100 * result1)/100 + " " + coinName);
+                            } else if(coinPrice>productPrice) {
+                                let result2 = coinPrice/productPrice
+                                console.log(coinName + " is worth " + Math.round(100 * result2)/100 + " [grocery item title]'s")
+                            } else {
+                                console.log("THEY B = ")
                             }
                         }
                         /*const cId = data.coins[0].id;

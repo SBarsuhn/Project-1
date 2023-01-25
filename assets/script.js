@@ -6,7 +6,7 @@ let willSpoonApi = `eff0c27f45264abbb0afaccac9b87b3a`
 let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`
 
             function getProductId() {
-                fetch(`https://api.spoonacular.com/food/products/search?query=beans&number=1&apiKey=` + kyleSpoonApi)
+                fetch(`https://api.spoonacular.com/food/products/search?query=beans&number=1&apiKey=` + samSpoonApi)
                 .then (function (response) {
                     response.json().then(function (data) {
                         const pId = data.products[0].id
@@ -17,7 +17,7 @@ let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`
             }
 
             function getProductPrice (pId) {
-                fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ adamSpoonApi)
+                fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ willSpoonApi)
                 .then(function (response) {
                     response.json().then(function (data) {
                         const productPrice = data.price;
@@ -28,20 +28,42 @@ let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`
             }
             getProductId()
 
-//test compare function
-let item1 = 143.28;
-let item2 = 5.00;
+            function getCryptoId() {
+                fetch(`https://api.coinstats.app/public/v1/coins`)
+                .then(function (response) {
+                    response.json().then(function (data) {
+                        const cId = data.coins[0].id;
+                        console.log(cId);
+                        getCryptoPrice(cId);
+                    })
+                })
+            }
 
-function priceCompare(productPrice) {
+            function getCryptoPrice(cId) {
+                fetch(`https://api.coinstats.app/public/v1/coins`)
+                .then(function (response) {
+                    response.json().then(function (data) {
+                        const cryptoPrice = data.coins[0].price
+                        console.log(cryptoPrice);
+                        priceCompare(cryptoPrice);
+                    })
+                })
+            }
+            getCryptoId();
+
+
+function priceCompare(productPrice, cryptoPrice) {
     let y, x, h;
     y = productPrice;
-    h = item2;
+    h = cryptoPrice;
     if(y>h){
         x = (y/h);
     } else if(h>y){
         x = (h/y);
-    } else {
+    } else if(h==y){
         console.log("They b equal yipoee");
+    } else {
+        console.log("error");
     }
     
     console.log(Math.round(100 * x)/100);

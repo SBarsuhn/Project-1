@@ -6,11 +6,13 @@ let willSpoonApi = `eff0c27f45264abbb0afaccac9b87b3a`;
 let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`;
 let groceryInputEl = document.querySelector(`.groceryinput`)
 let grocerySearch = document.querySelector(`#searchbtn`)
+let cardEl = document.querySelector(".card");
 //let grocerySearch1 = document.querySelector(`#temp`)
 
 
 function getProductId(event) {
     event.preventDefault()
+    cardEl.classList.add("slidedownout");
     let groceryItem = groceryInputEl.value
     console.log(`made it`);
     fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + adamSpoonApi)
@@ -22,6 +24,7 @@ function getProductId(event) {
                 console.log(pId);
                 getProductPrice(pId)
             })
+            showComp();
         })
 }
 grocerySearch.addEventListener("click", getProductId);
@@ -63,6 +66,29 @@ grocerySearch.addEventListener("click", getProductId);
                         getCryptoPrice(cId);*/
                     })
                 })
+            }
+
+            function showComp() {
+                $(".result").addClass("slidedownin");
+              let compCard = $(`
+              <div class="cardcontainer">
+                <div class="card z-depth-5">
+                    <div class="cardtitle">
+                    <h3 class="z-depth-2"> RESULT </h3>
+                    <ul>
+                    <li>PLACEHOLDER</li>
+                    <li>PLACEHOLDER</li>
+                    <li>PLACEHOLDER</li>
+                    <li>PLACEHOLDER</li>
+                    
+                    </ul>
+                    <button class=" closebtn z-depth-2 material-icons" id="closebtn">
+                    close
+                    </button>
+                    </div>
+                </div>
+              </div>`);
+              $(".result").append(compCard);
             }
 
            /* function getCryptoPrice(cId) {

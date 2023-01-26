@@ -1,5 +1,5 @@
 :root {
-
+    overflow: hidden;
     /* background-image: url(./images/layered-waves-haikei.svg); */
     /* background-image: url(./images/blob-scene-haikei.svg); */
     background-image: url(./images/blob-scene-haikei\ \(1\).svg);
@@ -121,3 +121,47 @@ input {
     background-color: rgba(255, 255, 255, 0.8);
 
 }
+
+.closebtn {
+    font-size: 20px;
+    border-radius: 20px;
+    width: 400px;
+    height: 40px;
+    background-color:rgba(255, 255, 255, 0.8);
+    
+    }
+
+    .slidedownout {
+        animation: 1s ease-out 0s slidedownout;
+        animation-fill-mode: forwards;
+    }
+    
+    .slidedownin {
+        animation: 1s ease-out 0s slidedownin;
+        animation-fill-mode: forwards;
+    
+    }
+    
+    @keyframes slidedownout {
+        0% {
+            transform: translateY(0%);
+          }
+          20% {
+            transform: translateY(-30%);
+          }
+          100% {
+            transform: translateY(600%);
+          }
+    }
+    
+    @keyframes slidedownin {
+        0% {
+            transform: translateY(-600%);
+          }
+          80% {
+            transform: translateY(30%);
+          }
+          100% {
+            transform: translateY(0);
+          }
+    }

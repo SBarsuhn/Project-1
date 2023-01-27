@@ -1,5 +1,3 @@
-
-//Spoontacular-
 let kyleSpoonApi = `bdac2658b6ce479987d06bba05dfc637`;
 let samSpoonApi = `fc3288e059a143bcbc4ba00aa5866e9b`;
 let willSpoonApi = `eff0c27f45264abbb0afaccac9b87b3a`;
@@ -9,29 +7,48 @@ let grocerySearch = document.querySelector(`#searchbtn`)
 let cardEl = document.querySelector(".card");
 let grocery
 let productContainer = $(`.product_btn`)
+let productButton = $(`.btnP`)
 let productBtn = []
 //let grocerySearch1 = document.querySelector(`#temp`)
 //local storage to get buttons
-// function createProductBtn() {
-//     let storedProduct = localStorage.getItem('product')
-//     if (storedProduct) {
-//         productBtn = JSON.parse(storedProduct)
+function createProductBtn() {
+    let storedProduct = localStorage.getItem('product')
+    if (storedProduct) {
+        productBtn = JSON.parse(storedProduct)
 
-//     }
-//     makeBtn()
-// }
-// createProductBtn()
-// function makeBtn() {
-//     productContainer.empty()
-//     for (let index = 0; index < productBtn.length; index++) {
-//         let newProductBtn = document.createElement('button');
-//         newProductBtn.addEventListener("click", getProductId)//come back to test
-//         document.querySelector('.cardcontainer').prepend(newProductBtn);
-//         newProductBtn.setAttribute("type", 'button');
-//         //newCityBtn.setAttribute(`class`, `btn cityBtn btn-secondary`);
-//         newProductBtn.textContent = productBtn[index];
-//     }
-// }
+    }
+    makeBtn()
+}
+createProductBtn()
+function makeBtn() {
+    productContainer.empty()
+    for (let index = 0; index < productBtn.length; index++) {
+        let newProductBtn = document.createElement('button');
+        newProductBtn.addEventListener("click", getProductIdClick)
+        document.querySelector('.product_btn').prepend(newProductBtn);
+        newProductBtn.setAttribute("type", 'button');
+        newProductBtn.setAttribute(`class`, `btnP`);
+        newProductBtn.textContent = productBtn[index];
+    }
+}
+function getProductIdClick() {
+    const $el = $(this)
+    let productSelect = $el.text()
+    console.log(productSelect);
+    console.log(`made it`);
+    fetch(`https://api.spoonacular.com/food/products/search?query=` + productSelect + `&number=1&apiKey=` + adamSpoonApi)
+        .then(function (response) {
+            response.json().then(function (data) {
+                const pId = data.products[0].id
+                const pT = data.products[0].title
+                grocery = pT;
+                console.log(pT);
+                console.log(pId);
+                getProductPrice(pId)
+            })
+            showComp();
+        })
+}
 function getProductId(event) {
     event.preventDefault()
     cardEl.classList.add("slidedownout");

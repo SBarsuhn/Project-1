@@ -7,6 +7,7 @@ let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`;
 let groceryInputEl = document.querySelector(`.groceryinput`)
 let grocerySearch = document.querySelector(`#searchbtn`)
 let cardEl = document.querySelector(".card");
+let grocery
 //let grocerySearch1 = document.querySelector(`#temp`)
 
 
@@ -20,6 +21,7 @@ function getProductId(event) {
             response.json().then(function (data) {
                 const pId = data.products[0].id
                 const pT = data.products[0].title
+                grocery = pT;
                 console.log(pT);
                 console.log(pId);
                 getProductPrice(pId)
@@ -35,8 +37,9 @@ grocerySearch.addEventListener("click", getProductId);
                 .then(function (response) {
                     response.json().then(function (data) {
                         const productPrice = data.price;
-                        console.log(productPrice);
-                        getCryptoId(productPrice);
+                        
+                        //if,then for when productPrice == 0
+                        productPrice==0? console.log("This item has no value :( ") : getCryptoId(productPrice);
                     })
                 })
             }
@@ -45,18 +48,19 @@ grocerySearch.addEventListener("click", getProductId);
                 fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=10`)
                 .then(function (response) {
                     response.json().then(function (data) {
+                        console.log("$" + productPrice)
                         let cryptoList = data.coins
                         for (let index = 0; index < cryptoList.length; index++) {
                             const coinName = cryptoList[index].name
                             const coinPrice = cryptoList[index].price
                             console.log(coinName);
-                            console.log(coinPrice);
+                            console.log("$" + coinPrice);
                             if (productPrice>coinPrice){
                                let result1 = productPrice/coinPrice
-                               console.log("[grocery item title] is equal to " + Math.round(100 * result1)/100 + " " + coinName);
+                               console.log("1 unit of " + grocery + " is worth " + Math.round(100 * result1)/100 + " " + coinName);
                             } else if(coinPrice>productPrice) {
                                 let result2 = coinPrice/productPrice
-                                console.log(coinName + " is worth " + Math.round(100 * result2)/100 + " [grocery item title]'s")
+                                console.log(coinName + " is worth " + Math.round(100 * result2)/100 + " units of " + grocery)
                             } else {
                                 console.log("THEY B = ")
                             }

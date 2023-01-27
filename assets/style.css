@@ -25,7 +25,10 @@ h1 {
     margin-left: 240px;
     /* border-radius: 10px; */
 }
-
+button {
+    height: 20px;
+    width: 50px;
+}
 @keyframes mymove {
     0% {
         color: #83ff00;

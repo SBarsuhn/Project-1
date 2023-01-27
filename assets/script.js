@@ -8,9 +8,30 @@ let groceryInputEl = document.querySelector(`.groceryinput`)
 let grocerySearch = document.querySelector(`#searchbtn`)
 let cardEl = document.querySelector(".card");
 let grocery
+let productContainer = $(`.product_btn`)
+let productBtn = []
 //let grocerySearch1 = document.querySelector(`#temp`)
+//local storage to get buttons
+function createProductBtn() {
+    let storedProduct = localStorage.getItem('product')
+    if (storedProduct) {
+        productBtn = JSON.parse(storedProduct)
 
-
+    }
+    makeBtn()
+}
+createProductBtn()
+function makeBtn() {
+    productContainer.empty()
+    for (let index = 0; index < productBtn.length; index++) {
+        let newProductBtn = document.createElement('button');
+        newProductBtn.addEventListener("click", getProductId)//come back to test
+        document.querySelector('.cardcontainer').prepend(newProductBtn);
+        newProductBtn.setAttribute("type", 'button');
+        //newCityBtn.setAttribute(`class`, `btn cityBtn btn-secondary`);
+        newProductBtn.textContent = productBtn[index];
+    }
+}
 function getProductId(event) {
     event.preventDefault()
     cardEl.classList.add("slidedownout");
@@ -25,6 +46,8 @@ function getProductId(event) {
                 console.log(pT);
                 console.log(pId);
                 getProductPrice(pId)
+                productBtn.push(groceryItem)
+                localStorage.setItem("product", JSON.stringify(productBtn))
             })
             showComp();
         })

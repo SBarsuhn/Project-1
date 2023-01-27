@@ -12,26 +12,26 @@ let productContainer = $(`.product_btn`)
 let productBtn = []
 //let grocerySearch1 = document.querySelector(`#temp`)
 //local storage to get buttons
-function createProductBtn() {
-    let storedProduct = localStorage.getItem('product')
-    if (storedProduct) {
-        productBtn = JSON.parse(storedProduct)
+// function createProductBtn() {
+//     let storedProduct = localStorage.getItem('product')
+//     if (storedProduct) {
+//         productBtn = JSON.parse(storedProduct)
 
-    }
-    makeBtn()
-}
-createProductBtn()
-function makeBtn() {
-    productContainer.empty()
-    for (let index = 0; index < productBtn.length; index++) {
-        let newProductBtn = document.createElement('button');
-        newProductBtn.addEventListener("click", getProductId)//come back to test
-        document.querySelector('.cardcontainer').prepend(newProductBtn);
-        newProductBtn.setAttribute("type", 'button');
-        //newCityBtn.setAttribute(`class`, `btn cityBtn btn-secondary`);
-        newProductBtn.textContent = productBtn[index];
-    }
-}
+//     }
+//     makeBtn()
+// }
+// createProductBtn()
+// function makeBtn() {
+//     productContainer.empty()
+//     for (let index = 0; index < productBtn.length; index++) {
+//         let newProductBtn = document.createElement('button');
+//         newProductBtn.addEventListener("click", getProductId)//come back to test
+//         document.querySelector('.cardcontainer').prepend(newProductBtn);
+//         newProductBtn.setAttribute("type", 'button');
+//         //newCityBtn.setAttribute(`class`, `btn cityBtn btn-secondary`);
+//         newProductBtn.textContent = productBtn[index];
+//     }
+// }
 function getProductId(event) {
     event.preventDefault()
     cardEl.classList.add("slidedownout");
@@ -73,32 +73,33 @@ grocerySearch.addEventListener("click", getProductId);
                     response.json().then(function (data) {
                         console.log("$" + productPrice)
                         let cryptoList = data.coins
+                        let compCard = $(`
+                        <div class="cardcontainer container">
+                             <div class="card resultcard z-depth-5">
+                                    <div class="cardtitle">
+                                    <h3 class="z-depth-2"> RESULT </h3>
+                                    <p> 1 ${cryptoList[0].name} is worth ${Math.round(100*cryptoList[0].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[1].name} is worth ${Math.round(100*cryptoList[1].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[2].name} is worth ${Math.round(100*cryptoList[2].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[3].name} is worth ${Math.round(100*cryptoList[3].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[4].name} is worth ${Math.round(100*cryptoList[4].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[5].name} is worth ${Math.round(100*cryptoList[5].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[7].name} is worth ${Math.round(100*cryptoList[6].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[8].name} is worth ${Math.round(100*cryptoList[7].price/productPrice)/100} ${grocery}</p>
+                                    <p> 1 ${cryptoList[9].name} is worth ${Math.round(100*cryptoList[8].price/productPrice)/100} ${grocery}</p>
+                                    
+                                    <button class=" closebtn z-depth-2 material-icons" id="closebtn">
+                                    close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>`);
+                        $(".result").append(compCard);
                         for (let index = 0; index < cryptoList.length; index++) {
                             const coinName = cryptoList[index].name
                             const coinPrice = cryptoList[index].price
                             console.log(coinName);
                             console.log("$" + coinPrice);
-                            let compCard = $(`
-                            <div class="cardcontainer">
-                              <div class="card z-depth-5">
-                                  <div class="cardtitle">
-                                  <h3 class="z-depth-2"> RESULT </h3
-                                  <p> 1 ${cryptoList[0].name} is worth ${Math.round(cryptoList[0].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[1].name} is worth ${Math.round(cryptoList[1].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[2].name} is worth ${Math.round(cryptoList[2].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[3].name} is worth ${Math.round(cryptoList[3].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[4].name} is worth ${Math.round(cryptoList[4].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[5].name} is worth ${Math.round(cryptoList[5].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[7].name} is worth ${Math.round(cryptoList[6].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[8].name} is worth ${Math.round(cryptoList[7].price/productPrice)} ${grocery}</p>
-                                  <p> 1 ${cryptoList[9].name} is worth ${Math.round(cryptoList[8].price/productPrice)} ${grocery}</p>
-                                  <button class=" closebtn z-depth-2 material-icons" id="closebtn">
-                                  close
-                                  </button>
-                                  </div>
-                              </div>
-                            </div>`);
-                            $(".result").append(compCard);
                             if (productPrice>coinPrice){
                                let result1 = productPrice/coinPrice
                                console.log("1 unit of " + grocery + " is worth " + Math.round(100 * result1)/100 + " " + coinName);

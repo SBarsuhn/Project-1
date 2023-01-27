@@ -78,7 +78,13 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 250px;
+}
+
+.resultcard {
+    display:flex;
+    width: 55vw;
+    height:55vh;
 }
 
 .card {
@@ -92,9 +98,15 @@ button {
     padding-right: 50px;
     padding-bottom: 310px;
     margin: 50px;
+    /* width: 25vw;
+    height: 25vh; */
+    box-shadow: #000b14 7px 10px 25px;
+}
+
+.searchcard {
     width: 25vw;
     height: 25vh;
-    box-shadow: #000b14 7px 10px 25px;
+
 }
 
 .cardtitle {
@@ -174,7 +186,7 @@ input {
           }
     }
 
-    @keyframes slideupout {
+    /* @keyframes slideupout {
         0% {
             transform: translateY(0%);
           }
@@ -196,4 +208,4 @@ input {
           100% {
             transform: translateY(0);
           }
-    }
+    } */

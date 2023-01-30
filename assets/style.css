@@ -69,7 +69,7 @@ button {
     background-color: #38f140;
 }
 
-#closebtn:hover {
+#reloadbtn:hover {
     background-color: #38f140;
 }
 
@@ -78,10 +78,11 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .resultcard {
+    padding-top: 20px;
     display:flex;
     width: 55vw;
     height:55vh;
@@ -96,7 +97,7 @@ button {
     border-radius: 15px;
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 310px;
+    padding-bottom: 300px;
     margin: 50px;
     /* width: 25vw;
     height: 25vh; */
@@ -142,13 +143,28 @@ input {
 
 }
 
-.closebtn {
+.reloadbtn {
     font-size: 20px;
     border-radius: 20px;
-    width: 400px;
+    width: 40px;
     height: 40px;
-    background-color:rgba(255, 255, 255, 0.8);
-    
+    background-color:rgba(255, 255, 255, 0.8);  
+
+}
+
+.reloadcontainer {
+    display: flex;
+    justify-content:center;
+
+    width: 100%;
+    margin-top: 50px;
+    position: absolute;
+    z-index: +1;
+}
+
+.reloadbtn:hover {
+        animation: 1s linear 0s rotate;
+        animation-iteration-count: infinite;
     }
 
     .slidedownout {
@@ -160,6 +176,14 @@ input {
         animation: 1s ease-out 0s slidedownin;
         animation-fill-mode: forwards;
     
+    }
+
+    @keyframes rotate{
+        from {
+            transform:rotate(0deg)
+        } to {
+            transform:rotate(360deg)
+        }
     }
     
     @keyframes slidedownout {

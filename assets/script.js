@@ -9,6 +9,13 @@ let grocery
 let productContainer = $(`.product_btn`)
 let productButton = $(`.btnP`)
 let productBtn = []
+let reloadBtn = document.querySelector(".reloadbtn")
+reloadBtn.addEventListener("click", reloadPage)
+
+
+function reloadPage() {
+location.reload()
+}
 //let grocerySearch1 = document.querySelector(`#temp`)
 //local storage to get buttons
 function createProductBtn() {
@@ -105,9 +112,6 @@ grocerySearch.addEventListener("click", getProductId);
                                     <p> 1 ${cryptoList[8].name} is worth ${Math.round(100*cryptoList[7].price/productPrice)/100} ${grocery}</p>
                                     <p> 1 ${cryptoList[9].name} is worth ${Math.round(100*cryptoList[8].price/productPrice)/100} ${grocery}</p>
                                     
-                                    <button class=" closebtn z-depth-2 material-icons" id="closebtn">
-                                    close
-                                    </button>
                                 </div>
                             </div>
                         </div>`);
@@ -134,13 +138,15 @@ grocerySearch.addEventListener("click", getProductId);
                         getCryptoPrice(cId);*/
                     })
                 })
+               
             }
 
             function showComp() {
                 $(".result").addClass("slidedownin");
-              
+                $(".reloadbtn").removeClass("hide")
             }
 
+            
            /* function getCryptoPrice(cId) {
                 fetch(`https://api.coinstats.app/public/v1/coins`)
                 .then(function (response) {

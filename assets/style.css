@@ -177,6 +177,24 @@ input {
         animation-fill-mode: forwards;
     
     }
+/*Will set button style properties*/
+.btnP {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #005f71;
+    font-size: 16px;
+    padding: 10px 24px;
+    border-radius: 25%;
+    border: 2px solid #00cf67;
+    height: auto;
+    width: auto;
+    color: white;
+    width: auto;
+    margin: 1px;
+}
+.button_field {
+    display: flex;
+    flex-direction: row;
+}
 
     @keyframes rotate{
         from {

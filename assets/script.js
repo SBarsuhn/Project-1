@@ -71,7 +71,7 @@ function getProductId(event) {
                 console.log(pId);
                 getProductPrice(pId)
                 productBtn.push(groceryItem)
-                localStorage.setItem("product", JSON.stringify(productBtn))
+                localStorage.setItem("product", JSON.stringify(productBtn));
             })
             showComp();
         })
@@ -146,7 +146,22 @@ grocerySearch.addEventListener("click", getProductId);
                 $(".reloadbtn").removeClass("hide")
             }
 
-            
+            function storageJanitor() {
+                
+                let storage = JSON.parse(localStorage.getItem('product'));
+                console.log(storage);
+                if(storage.length > 10) {
+                    console.log("it is greater than 10");
+                    let trash = storage.shift();
+                    console.log(storage);
+                    console.log(trash);
+                    localStorage.removeItem("product");
+                    localStorage.setItem("product", JSON.stringify(storage));
+                }
+                
+            }
+
+            storageJanitor();
            /* function getCryptoPrice(cId) {
                 fetch(`https://api.coinstats.app/public/v1/coins`)
                 .then(function (response) {

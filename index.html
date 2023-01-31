@@ -16,7 +16,16 @@
   </head>
   <body>
     <!-- <h1>Willy Wonka's Whimsical Cryptocurrency Converter</h1> -->
-    <div class="product_btn"></div>
+    <button data-target="modal1" class="btn modal-trigger modalbtn material-icons">apps</button>
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Recent Searches</h4>
+        <div class="product_btn"></div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">&times;</a>
+      </div>
+    </div>
     <div class="reloadcontainer">
     <button class="reloadbtn material-icons" id="reloadbtn">
       autorenew
@@ -42,6 +51,7 @@
       
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./assets/script.js"></script>
   </body>
 </html>

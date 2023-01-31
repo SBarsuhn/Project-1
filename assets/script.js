@@ -10,6 +10,10 @@ let productContainer = $(`.product_btn`)
 let productButton = $(`.btnP`)
 let productBtn = []
 let reloadBtn = document.querySelector(".reloadbtn")
+let modalBtn = document.querySelector(".modalbtn")
+$(document).ready(function(){
+    $('.modal').modal();
+  });
 reloadBtn.addEventListener("click", reloadPage)
 
 
@@ -59,6 +63,7 @@ function getProductIdClick() {
 function getProductId(event) {
     event.preventDefault()
     cardEl.classList.add("slidedownout");
+    modalBtn.classList.add("hide")
     let groceryItem = groceryInputEl.value
     console.log(`made it`);
     fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + adamSpoonApi)

@@ -13,17 +13,14 @@
 
 /* Kyle Added some animation*/
 h1 {
-    /* color: white; */
+ 
     width: 100%;
     font-size: 25px;
     height: 150px;
-    /* background: red; */
-    position: relative;
+    position: center;
     animation: mymove 5s infinite;
-    text-align:start;
-    /* margin:0%; */
-    margin-left: 240px;
-    /* border-radius: 10px; */
+    text-align:center;
+    margin:0%;
 }
 button {
     height: 20px;
@@ -96,8 +93,6 @@ button {
     padding-right: 50px;
     padding-bottom: 300px;
     margin: 50px;
-    /* width: 25vw;
-    height: 25vh; */
     box-shadow: #000b14 7px 10px 25px;
 }
 
@@ -151,9 +146,8 @@ input {
 
 .reloadbtn{
     color: white;
-    float: right;
-    box-shadow: ();
-    /* margin-top: 0px; */
+    margin-left:60px;
+    margin-top: 7px;
     font-size: 20px;
     border-radius: 20px;
     border-style: none;
@@ -164,15 +158,18 @@ input {
 }
 
 .product_btn {
-    display: inline-block;
+    display: flex;
     font-size: auto;
-    width: auto;
+    width: 50px;
     height:auto;
     border-radius: 20px;
 
 }
 
 .modalbtn{
+    box-shadow: none;
+    border-style: none;
+    position: fixed;
     margin-top: 10px;
     margin-left:10px;
     background-color: transparent;
@@ -182,16 +179,14 @@ input {
 .modalbtn:hover{
     background-color:transparent;
     color:#38f140;
+    box-shadow: none;
     transform: scale(1.4)
 }
 
 .reloadcontainer {
     display: flex;
     justify-content:end;
-
     width: 100%;
-    /* margin-top: 50px; */
-    /* position:fixed; */
     z-index: +1;
 }
 
@@ -199,7 +194,7 @@ input {
 .reloadbtn:hover {
         animation: 1s linear 0s rotate;
         animation-iteration-count: infinite;
-        color:#0e1822;
+        color:#38f140;
         background-color: transparent;
     }
 

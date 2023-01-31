@@ -16,7 +16,7 @@ h1 {
  
     width: 100%;
     font-size: 25px;
-    height: 150px;
+    height: 50px;
     position: center;
     animation: mymove 5s infinite;
     text-align:center;
@@ -101,7 +101,7 @@ button {
 }
 
 .modal {
-    background-color:  rgba(0, 22, 40, 0.4) ;
+    background-color:  rgba(0, 22, 40, 0.7) ;
     border-style: solid;
     border-color: rgba(255, 255, 255);
     border-radius: 15px;
@@ -204,6 +204,10 @@ input {
     z-index: +1;
 }
 
+.errormsg {
+    margin-top: 50px;
+}
+
 
 .reloadbtn:hover {
         animation: 1s linear 0s rotate;
@@ -285,7 +289,7 @@ input {
 
     @media only screen and (max-width: 400px) {
         .cardcontainer {
-            margin-top: 0px;
+            margin-top: 50px;
         }
 
         .card{

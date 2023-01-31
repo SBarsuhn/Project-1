@@ -14,14 +14,7 @@ let reloadBtn = document.querySelector(".reloadbtn")
 let modalBtn = document.querySelector(".modalbtn")
 let modalEl = document.querySelector(".modal")
 
-$('.btnP').on("click", modalClose);
-function modalClose() {
-    modalEl.classlist.remove("open")
-    console.log(REMOVED);
-}
-
-
-
+// This is the function that allows the recent searches modal to open
 $(document).ready(function(){
     $('.modal').modal();
   });
@@ -31,10 +24,11 @@ $(document).ready(function(){
 
 reloadBtn.addEventListener("click", reloadPage)
 
-
+// This is a function to reload the page so the user isn't stuck on the results screen
 function reloadPage() {
 location.reload()
 }
+// This function uses local storage to create a button from the users recent searches and adds it to the recent searches modal
 function createProductBtn() {
     let storedProduct = localStorage.getItem('product')
     if (storedProduct) {

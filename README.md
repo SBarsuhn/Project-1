@@ -15,15 +15,15 @@ Add link to deployed web page here.
 
 Once you enter the site simply enter in your choice of grocrey item.
 
-   ![Homepage](file:///Users/adam/Project-1/assets/images/Home.jpg)
+   ![Homepage](./assets/images/Home.jpg)
   
 Then you will be given the value of that item in crypto-currency.
 
-   ![Crypto results](file:///Users/adam/Project-1/assets/images/Crypto.jpg)
+   ![Crypto results](./assets/images/Crypto.jpg)
    
 If you would like to see your recent searches, click the squares in the top left corner. 
    
-   ![Recent search](file:///assets/images/Recent.jpg)
+   ![Recent search](./assets/images/Recent.jpg)
 
 
 ## Technologies 

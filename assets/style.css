@@ -69,9 +69,6 @@ button {
     background-color: #38f140;
 }
 
-#reloadbtn:hover {
-    background-color: #38f140;
-}
 
 /* Kyle Ends here */
 .cardcontainer {
@@ -103,6 +100,14 @@ button {
     height: 25vh; */
     box-shadow: #000b14 7px 10px 25px;
 }
+
+.modal {
+    background-color:  rgba(0, 22, 40, 0.4) ;
+    border-style: solid;
+    border-color: rgba(255, 255, 255);
+    border-radius: 15px;
+}
+
 
 .searchcard {
     width: 25vw;
@@ -145,19 +150,26 @@ input {
 }
 
 .reloadbtn{
+    color: white;
+    float: right;
+    box-shadow: ();
+    /* margin-top: 0px; */
     font-size: 20px;
     border-radius: 20px;
+    border-style: none;
     width: 40px;
     height: 40px;
-    background-color:rgba(255, 255, 255, 0.8);  
+    background-color:transparent;  
 
 }
 
 .product_btn {
+    display: inline-block;
+    font-size: auto;
     width: auto;
     height:auto;
     border-radius: 20px;
-    
+
 }
 
 .modalbtn{
@@ -175,11 +187,11 @@ input {
 
 .reloadcontainer {
     display: flex;
-    justify-content:center;
+    justify-content:end;
 
     width: 100%;
-    margin-top: 50px;
-    position: absolute;
+    /* margin-top: 50px; */
+    /* position:fixed; */
     z-index: +1;
 }
 
@@ -187,6 +199,8 @@ input {
 .reloadbtn:hover {
         animation: 1s linear 0s rotate;
         animation-iteration-count: infinite;
+        color:#0e1822;
+        background-color: transparent;
     }
 
     .slidedownout {
@@ -232,26 +246,14 @@ input {
           }
     }
 
-    /* @keyframes slideupout {
-        0% {
-            transform: translateY(0%);
-          }
-          20% {
-            transform: translateY(-30%);
-          }
-          100% {
-            transform: translateY(600%);
-          }
+    @media only screen and (max-width: 600px) {
+        .card{
+            width:auto;
+            margin: auto;
+            height:650px;
+        }
+
+
+
     }
-    
-    @keyframes slideupin {
-        0% {
-            transform: translateY(-600%);
-          }
-          80% {
-            transform: translateY(30%);
-          }
-          100% {
-            transform: translateY(0);
-          }
-    } */
+

@@ -11,9 +11,23 @@ let productButton = $(`.btnP`)
 let productBtn = []
 let reloadBtn = document.querySelector(".reloadbtn")
 let modalBtn = document.querySelector(".modalbtn")
+let modalEl = document.querySelector(".modal")
+
+$('.btnP').on("click", modalClose);
+function modalClose() {
+    modalEl.classlist.remove("open")
+    console.log(REMOVED);
+}
+
+
+
 $(document).ready(function(){
     $('.modal').modal();
   });
+
+ 
+
+
 reloadBtn.addEventListener("click", reloadPage)
 
 
@@ -33,6 +47,7 @@ function createProductBtn() {
 createProductBtn()
 function makeBtn() {
     productContainer.empty()
+    
     for (let index = 0; index < productBtn.length; index++) {
         let newProductBtn = document.createElement('button');
         newProductBtn.addEventListener("click", getProductIdClick)
@@ -43,11 +58,12 @@ function makeBtn() {
     }
 }
 function getProductIdClick() {
+    
     const $el = $(this)
     let productSelect = $el.text()
     console.log(productSelect);
     console.log(`made it`);
-    fetch(`https://api.spoonacular.com/food/products/search?query=` + productSelect + `&number=1&apiKey=` + adamSpoonApi)
+    fetch(`https://api.spoonacular.com/food/products/search?query=` + productSelect + `&number=1&apiKey=` + willSpoonApi)
         .then(function (response) {
             response.json().then(function (data) {
                 const pId = data.products[0].id
@@ -61,12 +77,13 @@ function getProductIdClick() {
         })
 }
 function getProductId(event) {
+    
     event.preventDefault()
     cardEl.classList.add("slidedownout");
     modalBtn.classList.add("hide")
     let groceryItem = groceryInputEl.value
     console.log(`made it`);
-    fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + adamSpoonApi)
+    fetch(`https://api.spoonacular.com/food/products/search?query=` + groceryItem + `&number=1&apiKey=` + willSpoonApi)
         .then(function (response) {
             response.json().then(function (data) {
                 const pId = data.products[0].id
@@ -83,6 +100,19 @@ function getProductId(event) {
 }
 grocerySearch.addEventListener("click", getProductId);
 
+function errorFunc() {
+    let errorCard = (`<div class="cardcontainer container">
+    <div class="card searchcard z-depth-5">
+           <div class="cardtitle">
+           <h3 class="z-depth-2"> Error </h3>
+           <p> This item has no value</p>
+           
+           
+       </div>
+   </div>
+</div>`)
+$(".result").append(errorCard)}
+
 
             function getProductPrice (pId) {
                 fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ willSpoonApi)
@@ -91,12 +121,16 @@ grocerySearch.addEventListener("click", getProductId);
                         const productPrice = data.price;
                         
                         //if,then for when productPrice == 0
-                        productPrice==0? console.log("This item has no value :( ") : getCryptoId(productPrice);
+                        productPrice==0? errorFunc() : getCryptoId(productPrice);
+
+                        
+                        // console.log("This item has no value :( ") : getCryptoId(productPrice);
                     })
                 })
             }
 
             function getCryptoId(productPrice) {
+                
                 fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=10`)
                 .then(function (response) {
                     response.json().then(function (data) {

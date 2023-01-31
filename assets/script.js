@@ -50,6 +50,7 @@ function makeBtn() {
         newProductBtn.textContent = productBtn[index];
     }
 }
+// This function fetches the product ID from the api
 function getProductIdClick() {
     
     const $el = $(this)
@@ -92,21 +93,21 @@ function getProductId(event) {
         })
 }
 grocerySearch.addEventListener("click", getProductId);
-
+// This function makes the card to let the user know that the api returned with a product with a value of 0
 function errorFunc() {
     let errorCard = (`<div class="cardcontainer container">
     <div class="card searchcard z-depth-5">
            <div class="cardtitle">
            <h3 class="z-depth-2"> Error </h3>
-           <p> This item has no value</p>
+           <p class="errormsg"> This item has no value</p>
            
            
-       </div>
+           </div>
    </div>
 </div>`)
 $(".result").append(errorCard)}
 
-
+// This function fetches the product price from the api
             function getProductPrice (pId) {
                 fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ will2SpoonApi)
                 .then(function (response) {
@@ -121,7 +122,7 @@ $(".result").append(errorCard)}
                     })
                 })
             }
-
+// This function fetches the price of the cryptocurrencies and then makes a card that displays the results
             function getCryptoId(productPrice) {
                 
                 fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=10`)
@@ -169,7 +170,7 @@ $(".result").append(errorCard)}
                 })
                
             }
-
+// This function triggers the slide down animation on the results card
             function showComp() {
                 $(".result").addClass("slidedownin");
                 $(".reloadbtn").removeClass("hide")

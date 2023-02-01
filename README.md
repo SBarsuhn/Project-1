@@ -1,7 +1,7 @@
 
 # Willy Wonka's Whimsical Cryptocurrency Converter
 
-## Link - https://sbarsuhn.github.io/Project-1/
+## Link - https://sbarsuhn.github.io/Willy-Wonkas-Whimsical-Cryptocurrency-Converter/
  
 
 ## Description

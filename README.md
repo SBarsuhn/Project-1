@@ -1,9 +1,8 @@
 
 # Willy Wonka's Whimsical Cryptocurrency Converter
 
-## Link 
+## Link - https://sbarsuhn.github.io/Project-1/
  
-Add link to deployed web page here. 
 
 ## Description
 
@@ -12,6 +11,7 @@ Add link to deployed web page here.
 - This project was built out of curiosity and the desire for skill improvement.
 
 ## Usage
+
 
 Once you enter the site simply enter in your choice of grocrey item.
 

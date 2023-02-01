@@ -2,7 +2,8 @@ let kyleSpoonApi = `bdac2658b6ce479987d06bba05dfc637`;
 let samSpoonApi = `fc3288e059a143bcbc4ba00aa5866e9b`;
 let willSpoonApi = `eff0c27f45264abbb0afaccac9b87b3a`;
 let adamSpoonApi = `4173694ca49d4d7498d18a6a3b6883fd`;
-let will2SpoonApi = '0475c46828d64a7ebe7c433c3e94acf6'
+let will2SpoonApi = '0475c46828d64a7ebe7c433c3e94acf6';
+let kyleApiKey2 = `2128896be8d84b93b61ae150f604a09d`
 let groceryInputEl = document.querySelector(`.groceryinput`)
 let grocerySearch = document.querySelector(`#searchbtn`)
 let cardEl = document.querySelector(".card");
@@ -110,7 +111,7 @@ $(".result").append(errorCard)}
 
 // This function fetches the product price from the api
             function getProductPrice (pId) {
-                fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ will2SpoonApi)
+                fetch(`https://api.spoonacular.com/food/products/`+pId + `/?apiKey=`+ kyleApiKey2)
                 .then(function (response) {
                     response.json().then(function (data) {
                         const productPrice = data.price;

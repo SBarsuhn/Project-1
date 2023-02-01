@@ -50,7 +50,7 @@ function makeBtn() {
         newProductBtn.textContent = productBtn[index];
     }
 }
-// This function fetches the product ID from the api
+// This function fetches the product ID from the api. This one uses the text from the local storage buttons.
 function getProductIdClick() {
     
     const $el = $(this)
@@ -70,6 +70,7 @@ function getProductIdClick() {
             showComp();
         })
 }
+//This function fetches the product ID from the api. This one uses the text the user inputs into the search box
 function getProductId(event) {
     
     event.preventDefault()
